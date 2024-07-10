@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: st_water_seg
+Version: 0.0.1
+Requires-Dist: requests
+Requires-Dist: toml
+Requires-Dist: importlib-metadata; python_version > "3.9"
+Requires-Dist: hydra-core
+Requires-Dist: opencv-python
+Requires-Dist: imagecodecs
+Requires-Dist: yapf
+Requires-Dist: pytorch_lightning

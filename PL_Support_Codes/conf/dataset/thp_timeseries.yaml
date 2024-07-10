@@ -1,0 +1,7 @@
+name: thp_timeseries
+channels: ALL  # [RGB, RGB_NIR, ALL]
+sensor: PS  # [S2, PS]
+
+dataset_kwargs:
+  dem: False
+  slope: False

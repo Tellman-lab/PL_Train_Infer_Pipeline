@@ -1,0 +1,7 @@
+name: combined
+channels: ALL # [RGB, RGB_NIR, ALL]
+sensor: PS # [S2, S1]
+
+dataset_kwargs:
+  dem: False
+  slope: False

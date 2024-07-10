@@ -1,0 +1,7 @@
+name: csdap
+channels: ALL  # [RGB, RGB_NIR, ALL]
+sensor: S2  # [S2, PS]
+
+dataset_kwargs:
+  dem: False
+  slope: False

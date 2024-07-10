@@ -1,0 +1,6 @@
+# @package _global_
+defaults:
+  - override /dataset: csdap
+
+# Add other parameters here. 
+lr: 1e-7

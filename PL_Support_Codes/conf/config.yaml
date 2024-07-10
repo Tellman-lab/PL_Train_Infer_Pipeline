@@ -1,0 +1,76 @@
+defaults:
+  - model: ef_model
+  - override hydra/sweeper: basic
+  - _self_
+
+hydra:
+  run:
+    dir: ../Model_in_progress/${now:%Y-%m-%d}/rexnet_cadap_all_localNorm/
+  output_subdir: ./hydra/
+
+# Dataset parameters
+dataset_name: combined
+dataset_sensor: PS # S1 S2 PS
+dataset_channels: ALL
+dataset_kwargs:
+  dem: False
+  slope: False
+
+# Model parameters
+model_name: ef_model # ef_model, lf_model
+# model_used: unet_cbam # # net_orig, unet_cbam, rexnet
+model_used: rexnet_unet
+model_n_classes: 3 # one class for ignore index, one for not water and one for water
+model_loss_fn_a: focal # cross_entropy, focal_loss, dice_loss, tversky_loss, tversky_focal_loss
+model_loss_fn_a_ratio: 1
+model_loss_fn_b: dice # cross_entropy, focal_loss, dice_loss, tversky_loss, tversky_focal_loss
+model_loss_fn_b_ratio: 1
+model_kwargs:
+# [adam, sgd, adamw, adamax, adadelta, adagrad, rmsprop, rprop, asgd, lbfgs, sparse_adam, radam, nadam]
+  optimizer_name: adamw
+  # only apply for lf_model
+  #feat_fusion: concat_conv 
+
+# Split hyperparameters
+eval_region: LittleRock # [null, BEI, CMO, CTO, DKA, GIL, HTX, KTM, NSW, PNE, SPS]
+train_split_pct: 1.0
+
+# General hyperparameters.
+crop_height: 256
+crop_width: 256
+crop_stride: 256
+n_epochs: 45
+lr: 5e-6
+# optimizer: adamw
+# [adam, sgd, adamw, adamax, adadelta, adagrad, rmsprop, rprop, asgd, lbfgs, sparse_adam, radam, nadam]
+batch_size: 23
+n_workers: 0
+save_topk_models: 16
+ignore_index: -1
+seed_num: 0
+
+
+# Pytorch Lightnight settings.
+profiler: null # [null, simple, advanced]
+limit_train_batches: null # int, maximum number of training batches per epoch.
+limit_val_batches: null # int, maximum number of valiidation batches per epoch.
+
+# Tracking model progress hyperparameters.
+log_image_iter: 200 # How often to log images during training and validation steps
+
+# Data transform hyperparameters.
+norm_mode: local # [null: No normalization, local: each image is normalized separately, global: use precomputed normalization parameters]
+
+# Transforms.
+transforms:
+  hflip:
+    active: True
+    likelihood: 0.5
+  vflip:
+    active: True
+    likelihood: 0.5
+  rotate:
+    active: True
+    likelihood: 0.5
+    min_rot_angle: 0
+    max_rot_angle: 350

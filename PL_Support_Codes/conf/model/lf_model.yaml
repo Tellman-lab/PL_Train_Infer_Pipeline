@@ -1,0 +1,5 @@
+name: lf_model
+
+model_kwargs:
+  optimizer_name: adam
+  feat_fusion: concat_conv

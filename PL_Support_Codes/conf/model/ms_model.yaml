@@ -1,0 +1,4 @@
+name: ms_model
+
+model_kwargs:
+  optimizer_name: adam

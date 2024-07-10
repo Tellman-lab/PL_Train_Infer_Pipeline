@@ -1,0 +1,37 @@
+name: geotorchee
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+    - python=3.11
+    - pip>=19.0
+    - pytorch 
+    - torchvision 
+    - torchaudio
+    - jupyter
+    - scikit-learn
+    - scipy
+    - pandas
+    - pandas-datareader
+    - matplotlib
+    - pillow
+    - tqdm
+    - requests
+    - h5py
+    - pyyaml
+    - flask
+    - boto3
+    - ipykernel
+    - rasterio
+    - fiona
+    - shapely
+    - pyproj
+    - pandas
+    - geopandas
+    - pystac
+    - tqdm
+    - einops
+    - tifffile
+    - earthengine-api
+    - geemap

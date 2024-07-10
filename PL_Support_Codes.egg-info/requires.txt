@@ -1,0 +1,10 @@
+requests
+toml
+hydra-core
+opencv-python
+imagecodecs
+yapf
+pytorch_lightning
+
+[:python_version > "3.9"]
+importlib-metadata

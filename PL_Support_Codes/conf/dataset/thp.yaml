@@ -1,0 +1,11 @@
+name: thp
+channels: ALL  # [RGB, RGB_NIR, ALL]
+sensor: PS  # [S2, PS, S1]
+
+dataset_kwargs:
+  dem: False
+  slope: False
+  preflood: False  # Only available for S1 sensor
+  pre_post_difference: False  # Computes the difference between 
+  hand: False
+  chirps: False
